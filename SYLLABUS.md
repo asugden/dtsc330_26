@@ -282,7 +282,7 @@ The "blocking" problem
 
 - You know that prep-before-the-midterm thing? That's this week. You've been working hard to get your code organized. We're going to start from scratch and reproduce everything, covering whatever questions you have. We will end with a working implementation of the entire pipeline based on everything we've learned, beginning with a brand-new repository. It is essential that you use this chance to ask all of those burning questions.
 
-# Week 10 - Mar 30
+## Week 10 - Mar 30
 
 - Finishing up the review from Week 9
 - Focus on creating a dataset and training the model
@@ -291,20 +291,20 @@ The "blocking" problem
     - Embedding + nearest neighbors
     - By last name
 
-# Week 11 - Apr 13
+## Week 11 - Apr 13
 
 - Go through the final file-- pushed to week 13
 - Autoencoder in tensorflow
 - Create our own neural network library
 
-# Week 12 - Apr 20
+## Week 12 - Apr 20
 
 - Finish the autoencoder in tensorflow, training it on the wine quality dataset
 - Finish the neural network library
 - Apply tensortango (the NN library) to the wine quality dataset
 - Consider how CNNs are a minor variant of what we've built
 
-# Week 13 - Apr 27
+## Week 13 - Apr 27
 
 This week is a grab-bag based on requests.
 
