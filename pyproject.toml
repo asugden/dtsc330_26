@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dtsc330-26"
+version = "0.1.0"
+description = ""
+authors = ["Arthur Sugden <arthur.sugden@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+numpy = "^2.4.1"
+pandas = "^3.0.0"
+lxml = "^6.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
