@@ -152,7 +152,8 @@ Homework 1 due Jan 25:
 
 ## Week 2 - Jan 26
 
-Dataset: https://reporter.nih.gov/exporter
+Dataset for Grants: https://reporter.nih.gov/exporter
+Dataset for Articles: https://ftp.ncbi.nlm.nih.gov/pubmed/updatefiles/
 
 - Rules for ChatGPT and why
 - CVs/Resumes
@@ -170,6 +171,12 @@ Dataset: https://reporter.nih.gov/exporter
 - Pandas is easy, efficiency is hard
 - Numpy/Pandas translation
 - Grants data reading function
+
+Homework 2 due Feb 1:
+
+- How do you fill in the missing dates from the grants data?
+- PI_NAMEs contains multiple names. We can only connect individual people. Can you make it so that we can get "grantees"?
+- The dates for Articles are problematic. Can you fix them?
 
 ## Week 3 - Feb 2
 
@@ -237,7 +244,6 @@ The "blocking" problem
 
 - How has each person addressed the blocking problem?
 - How has each person created a training set?
-
   - We need more data. Let's use a database
 
 - Why a database?
@@ -256,7 +262,6 @@ The "blocking" problem
   - row types
 - Data tables
 - Bridge tables
-
   - Relationships between tables
 
 - Create database for our two datasets
@@ -269,7 +274,6 @@ The "blocking" problem
 - Each person explains their current state
 
 - Continue with SQL
-
   - SELECT and INSERT
   - DELETE FROM
   - JOIN
