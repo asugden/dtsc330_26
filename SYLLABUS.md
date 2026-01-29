@@ -178,6 +178,8 @@ Homework 2 due Feb 1:
 - PI_NAMEs contains multiple names. We can only connect individual people. Can you make it so that we can get "grantees"?
 - The dates for Articles are problematic. Can you fix them?
 
+Add your thinking to your README.md file in a section titled `## Homework 2`.
+
 ## Week 3 - Feb 2
 
 - Classification introduction
