@@ -120,6 +120,7 @@ You may have noticed that you've been sent a slack invite. This is never require
 
 - Discuss everyone's backgrounds
 - Discuss each student's desired outcomes from the course
+- What are LLMs?
 - VSCode/local coding
   - Install VSCode
 - Code documentation
@@ -170,7 +171,8 @@ Dataset for Articles: https://ftp.ncbi.nlm.nih.gov/pubmed/updatefiles/
   - Data merging
 - Pandas is easy, efficiency is hard
 - Numpy/Pandas translation
-- Grants data reading function
+- Grants data reading class
+- Articles reading class
 
 Homework 2 due Feb 1:
 
@@ -182,12 +184,41 @@ Add your thinking to your README.md file in a section titled `## Homework 2`.
 
 ## Week 3 - Feb 2
 
+Sign up for the Grefenstette Hackathon! https://www.duq.edu/research/centers-and-institutes/grefenstette-center/hacking4humanity.php
+
+- There is _no better way_ to learn about coding than to do it
+- Use your DTSC220 and 330 skill for an amazing goal
+- Win $1000
+
+Dataset: https://physionet.org/content/sleep-accel/1.0.0/labels/#files-panel
+
+- Download the ZIP file
+- This will take 30 minutes
+
+- Code review of example answers
+- Reiterate file structure found in README.md
 - Classification introduction
+  - Reminder of features vs labels
   - Examples of classification in data science
 - Create a reusable function for training a classifier
 - Create a reusable function for saving a classifier
 - Create a reusable function for loading and running a classifier
   - Scikit-learn
+- Time permitting, a discussion of why we choose the models we do
+  - Black box vs open box
+  - Parameters
+  - Complexity
+
+Homework 3 due Feb 8
+
+- Create the best possible classifier of sleep from acceleration and heart rate
+  - If we have not finished the associated readers by the end of class, you will have to complete these readers yourself
+- The classifier should be written using the technique used in class:
+  1. Code should have docstrings
+  1. The outermost code you write should be in a script that imports and uses reusable_classifier (or a specific version thereof)
+  1. The code should also import and use any necessary readers
+  1. Any transformations to the raw data should be done in the reader
+- As before, please add a short description to your README that returns the performance of your model and no more than one paragraph on why you chose the features you did
 
 ## Week 4 - Feb 9
 
