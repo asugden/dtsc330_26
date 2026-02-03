@@ -24,7 +24,7 @@ programming
 │   └─── scripts
 │       │    some_script.py
 │
-└─── dtsc330_26
+└─── dtsc330_25
 │   │    .gitignore
 │   │    README.md
 ```
