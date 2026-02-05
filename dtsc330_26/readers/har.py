@@ -6,15 +6,16 @@ import pandas as pd
 
 
 class HAR():
-    def __init__(self, path: str):
+    def __init__(self, path: str, n_people: int):
         """Take in a path, read in the data files
 
         Args:
             path (str): the BASE path of the directory
+            n_people (int): the number of people's data to read
         """
-        hrs = self._read_hr(path)
-        mots = self._read_motion(path)
-        lbls = self._read_labels(path)
+        hrs = self._read_hr(path, n_people)
+        mots = self._read_motion(path, n_people)
+        lbls = self._read_labels(path, n_people)
         self.df = self._combine(hrs, mots, lbls)
 
     def _read_hr(self, path: str, n_people: int = 1):
@@ -77,6 +78,18 @@ class HAR():
         collected separately. There are multiple ways to combine them, but this
         leaves the data closest to its raw state.
         """
+        # In the case of multiple people, they may have been recorded 
+        # with some overlap. We will fix that by using a recursive
+        # function-- a function that calls itself.
+        if len(pd.unique(hrs['person'])) > 1:
+            people = pd.unique(hrs['person'])
+            out = []
+            for person in people:
+                out.append(self._combine(hrs.loc[hrs['person'] == person],
+                                         mots.loc[mots['person'] == person],
+                                         lbls.loc[lbls['person'] == person]))
+            return pd.concat(out)
+
         # Calculate median time interval between consecutive points for 
         # each dataframe
         # We will also exclude time points that aren't in all three dataframes
@@ -138,7 +151,7 @@ class HAR():
 
         # Combine the dataframes
         combined = pd.concat([
-            hrs_interp[['hr']],
+            hrs_interp[['hr', 'person']],
             mots_interp[['acc_x', 'acc_y', 'acc_z']],
             lbls_interp[['is_sleep']]
         ], axis=1).dropna().reset_index()  # Remove NaNs and fix the index
