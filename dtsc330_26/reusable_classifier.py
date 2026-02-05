@@ -33,7 +33,7 @@ class ReusableClassifier:
         if self.model_type == 'logistic_regression':
             self.model = sklearn.linear_model.LogisticRegression()
         if self.model_type == 'random_forest':
-            self.model = sklearn.ensemble.RandomForestClassifer()
+            self.model = sklearn.ensemble.RandomForestClassifier()
 
         # We NEED to scale the data for regression
         # we can use a StandardScaler to make it normal
@@ -45,7 +45,7 @@ class ReusableClassifier:
         # Attempts to train the model based on the features and labels
         # Different algorithms have different ways of evaluating the
         # training. 
-        self.model.fit(features, labels)
+        self.model.fit(features, labels.astype(int))
 
     def predict(self, features):
         """Predict labels using model_type from features
@@ -58,7 +58,7 @@ class ReusableClassifier:
         return self.model.predict(features)  # we can use predict_proba
         # which returns the probability rather than true/false
 
-    def assess(self, features, labels, split_data: bool = True, random_number: int = 42):
+    def assess(self, features, labels, random_number: int = 42):
         """Assess how well the classifier performed."""
         # Train test split
         # If you ask how well the model did on the training data
@@ -68,7 +68,7 @@ class ReusableClassifier:
         self.train(train_features, train_labels)
 
         predictions = self.predict(test_features)
-        return np.sum(predictions.astype(float) - test_labels.to_numpy().astype(float))/len(test_labels)
+        return 1 + np.sum(predictions.astype(float) - test_labels.to_numpy().astype(float))/len(test_labels)
 
     def save(self, path: str):
         """Save our model to the location path."""
