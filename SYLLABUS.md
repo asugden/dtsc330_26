@@ -222,18 +222,48 @@ Homework 3 due Feb 8
 
 ## Week 4 - Feb 9
 
-- Talk about the hackathon
-- Talk about Semantle
+- Discuss Homework 3
+  - How did you let the algorithm understand "baseline"?
+  - Train-test split in temporal data
+  - Strictly reference the layout in this repository:
+    - No `__init__.py` in `scripts/`
+    - Only file readers in `readers/`
+    - Scripts vs libraries
+  - Come up with other uses for this kind of classifier 
+- ChatGPT and the Brain
 - Decision trees slides
   - Random forest
   - XGBoost
-- Download the wine quality dataset: https://archive.ics.uci.edu/dataset/186/wine+quality
-  - Use it with an xgboost model
+- Semantle as an introduction to Natural Language Processing (NLP)
+  - https://semantle.com/
 - Natural language processing
-  - spacy
-  - fasttext
   - nltk
-- Download the weekly incremental NPI file: https://download.cms.gov/nppes/NPI_Files.html
+    - tokenization
+  - spacy
+    - noun phrases
+  - fasttext
+    - We will use this the most and this is the secret to LLMs
+
+Homework 4:
+- Add XGBoost to your reusable classifier
+- For those who did not structure the assessment to be between people (instead using a simple train_test_split), refactor your code to be between people. You can reference my code.
+- Compare the performance of XGBoost with Random Forest and add the difference (one sentence) to your README.md.
+- Install `fasttext` and embed a single word.
+- Referencing what we've discussed throughout the course up to this point, create an explanation of machine learning.
+  - You can eventually adapt this into a Medium or LinkedIn post to help prepare for a job search
+  - Nothing shows understanding better than teaching
+  - This should be about one page and must include both a diagram and a description. The weight of one vs the other is up to you. The diagram _MUST_ be your own-- it cannot be taken from the internet. Similarly, I would prefer a wrong answer over one created by a large language model. Think of this as preparation for the Performance Review (Midterm) and Job Interview (Final Exam).
+  - Must be in the form of a Markdown (.md) file with an imported image
+  - I would recommend covering the key concepts:
+    - Features
+    - Labels
+    - Classification vs regression
+    - Parameters
+    - Black box vs open box
+    - Different models that we've discussed and how to choose from amongst them
+    - Data vs features
+    - Training data requirements
+    - Anything else that's interesting
 
 ## Week 5 - Feb 16
 
@@ -272,6 +302,9 @@ The "blocking" problem
 
 - Blocking problem and nearest neighbor indices
 - Combine together to create a tool to classify the two datasets
+
+Homework:
+- Set up Performance Review
 
 ## Week 7 - Mar 9
 
