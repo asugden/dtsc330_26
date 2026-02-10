@@ -253,7 +253,9 @@ Homework 4:
   - You can eventually adapt this into a Medium or LinkedIn post to help prepare for a job search
   - Nothing shows understanding better than teaching
   - This should be about one page and must include both a diagram and a description. The weight of one vs the other is up to you. The diagram _MUST_ be your own-- it cannot be taken from the internet. Similarly, I would prefer a wrong answer over one created by a large language model. Think of this as preparation for the Performance Review (Midterm) and Job Interview (Final Exam).
-  - Must be in the form of a Markdown (.md) file with an imported image
+  - Must be in the form of a Markdown (.md) file with an imported image (note that this is a markdown file. As is your README.md file)
+    - Add the diagram to your repository
+    - Insert the diagram using: `![description](relative/path/to/image.png)`
   - I would recommend covering the key concepts:
     - Features
     - Labels
