@@ -275,14 +275,16 @@ NOTE: Installing fasttext on python 3.12 or higher requires a workaround:
 poetry add git+https://github.com/cfculhane/fastText
 ```
 
-- Return to Semantle as an example of word2vec
-- Compare on the screen the reader functions submitted by each person
-- Use one to load data
+- How is everyone feeling?
+- Go over classifiers one last time
 - Talk about bias in data
   - Finance field, zip code
   - Amazon hiring
   - Judicial predictions
+  - LLMs are pleasing
+- fasttext vs word2vec
 - Create a function together to produce entity resolution features
+  - People will take turns adding lines on my computer
 - How to create training data
   - Simulation
   - Hand-labeling
@@ -290,6 +292,20 @@ poetry add git+https://github.com/cfculhane/fastText
 - Recursive model training
   - Bias
   - Bootstrapping + class mislabels
+
+Homework 5:
+- Create entity resolution training data via simulation
+  - The number of rows is up to you
+  - As are error styles
+  - Should include forename, surname
+  - Can include initials, affiliations
+- Add 2-3 sentences to your README.md answering the following _WITH NO LLM/GOOGLE HELP_:
+  - What is the simplest way you can think of to limit the phonebook-to-phonebook matching problem such that you do not have to do an all-to-all comparison?
+    - You can do this. You don't need any information other than thinking of a phone book.
+    - You have first name, last name, address, and phone number in each.
+    - You must compare two phone books with the above information.
+    - You cannot propose a solution that compares every entry in phone book 1 to every entry in phone book 2.
+
 
 ## Week 6 - Feb 23
 

@@ -2,6 +2,14 @@
 95.6% accuracy
 """
 
+import os
+import sys
+
+print("exe:", sys.executable)
+print("cwd:", os.getcwd())
+print("path[0]:", sys.path[0])
+print("sys.path:", sys.path)
+
 import numpy as np
 import pandas as pd
 

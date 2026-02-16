@@ -1,9 +1,10 @@
 import gzip
-import pandas as pd
 import xml.etree.ElementTree as ET
 
+import pandas as pd
 
-class Articles():
+
+class Articles:
     def __init__(self, path: str):
         """Read in a pubmed articles XML file that is gzipped
 
@@ -20,13 +21,13 @@ class Articles():
         authors = []
         # One trick for creating a dataframe is to create a list of
         # dicts with the same naming format
-        with gzip.open(path, 'rb') as fp:
+        with gzip.open(path, "rb") as fp:
             # _ means throw it away
             # for test in ET.iterparse(fp, events=('end',)):
             # test = (index, value itself)
 
-            for _, article in ET.iterparse(fp, events=('end',)):
-                if article.tag == 'PubmedArticle':
+            for _, article in ET.iterparse(fp, events=("end",)):
+                if article.tag == "PubmedArticle":
                     article_row, article_authors = self._parse_article(article)
                     articles.append(article_row)
                     authors.extend(article_authors)  # be careful extend vs append
@@ -40,7 +41,16 @@ class Articles():
     def _parse_article(self, article: ET.Element):
         """Parse an XML PubmedArticle element"""
         row = {}
-        tags = ['PMID', 'ArticleTitle', 'PubDate', 'DateCompleted', 'Affiliation']
+        tags = [
+            "PMID",
+            "ArticleTitle",
+            "PubDate",
+            "DateCompleted",
+            "Affiliation",
+            "Year",
+            "Month",
+            "Day",
+        ]
         # <PubDate>
         #   <Year>2001</Year>
         #   <Month>2</Month>
@@ -50,6 +60,10 @@ class Articles():
         # </PubDate>
         for el in article.iter():
             if el.tag in tags:
+                if el.tag.contains("Date"):
+                    for el2 in el.tag.iter():
+                        if el2.tag in tags:
+                            row[el2.tag] = el2.text
                 row[el.tag] = el.text
                 # <LastName>Bettcher</LastName>
                 # el.text pulls out what's INSIDE the pair of tags
@@ -57,31 +71,31 @@ class Articles():
                 # remember that a tag is combination of a start and end
                 # <el.tag></el.tag>
 
-        if 'PMID' not in row.keys():
+        if "PMID" not in row.keys():
             return {}, {}
-        
+
         # In XML, strictly speaking, there's no rule about order
         # <AuthorList></AuthorList><PMID></PMID>
         # <PMID></PMID><AuthorList></AuthorList>
         authors = []
-        tags = ['LastName', 'ForeName', 'Initials', 'Affiliation']
-        for author in article.findall('.//Author'):
-            auth_row = {'PMID': row['PMID']}
+        tags = ["LastName", "ForeName", "Initials", "Affiliation"]
+        for author in article.findall(".//Author"):
+            auth_row = {"PMID": row["PMID"]}
             for el in author.iter():
                 if el.tag in tags:
                     auth_row[el.tag] = el.text
             authors.append(auth_row)
-        
+
         return row, authors
-    
+
     def get_authors(self):
         """Get parsed grants"""
-        return self.author_df     
-    
+        return self.author_df
+
     def get_entries(self):
         """Get parsed articles"""
         return self.article_df
-    
 
-if __name__ == '__main__':
-    articles = Articles('data/pubmed25n1275.xml.gz')
+
+if __name__ == "__main__":
+    articles = Articles("data/pubmed25n1275.xml.gz")
