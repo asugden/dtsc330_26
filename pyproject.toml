@@ -16,6 +16,8 @@ flask = "^3.1.2"
 nltk = "^3.9.2"
 spacy = "^3.8.11"
 gensim = "^4.4.0"
+jarowinkler = "^2.0.1"
+xgboost = "^3.2.0"
 
 
 [build-system]

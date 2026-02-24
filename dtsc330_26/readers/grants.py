@@ -37,12 +37,43 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
 
         # Added after homework
         # ====================
-        grantees = df[["application_id", "pi_names"]].dropna(how="any")
+        df["affiliation"] = df.apply(
+            lambda row: ", ".join(
+                [
+                    v
+                    for v in [
+                        row["organization"],
+                        row["city"],
+                        row["state"],
+                        row["country"],
+                    ]
+                    if not pd.isna(v)
+                ]
+            ),
+            axis=1,
+        ).str.lower()
+
+        grantees = df[["application_id", "pi_names", "affiliation"]].dropna(how="any")
         grantees["pi_name"] = grantees["pi_names"].str.split(";")
         grantees = grantees.explode("pi_name").reset_index(drop=True)
+
+        grantees["pi_name"] = (
+            grantees["pi_name"].str.lower().str.replace("(contact)", "").str.strip()
+        )
+        names = grantees["pi_name"].apply(lambda x: x.split(","))
+        grantees["surname"] = names.apply(lambda x: x[0]).str.strip()
+        grantees["forename"] = (
+            names.apply(lambda x: x[1]).str.replace(".", "").str.strip()
+        )
+        grantees["initials"] = grantees["forename"].apply(
+            lambda x: [v[0] for v in x.split(" ") if len(v) > 0]
+        )
         # ====================
 
-        return df.drop(columns=["pi_name"]), grantees
+        return (
+            df.drop(columns=["pi_names"]),
+            grantees[["surname", "forename", "initials", "affiliation"]],
+        )
 
     def get_grants(self):
         """Get parsed grants"""
@@ -50,8 +81,16 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
 
     # Added after homework
     # ====================
-    def get_grantees():
+    def get_grantees(self):
         """Get parsed grantees"""
+        return self.grantee_df.rename(
+            {
+                "LastName": "surname",
+                "ForeName": "forename",
+                "Initials": "initials",
+                "Affiliation": "affiliation",
+            }
+        )
 
 
 if __name__ == "__main__":

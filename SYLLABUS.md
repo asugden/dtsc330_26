@@ -41,7 +41,7 @@ You can schedule the 1:1 15 minute Performance Review any time in those two week
    - Does the code run?
 2. For each day of class, report the number of days that you attended _on time_.
 3. Give an assessment of your understanding of the course material.
-   - How many times did you use Generate AI assistance?
+   - How many times did you use Generative AI assistance?
    - Can you describe machine learning models?
    - How do you choose which ML model to use?
 
@@ -309,26 +309,33 @@ Homework 5:
 
 ## Week 6 - Feb 23
 
-The day of code
 
-- Talk through everyone's classifier
-- Create training data together (20-100 entries only)
-- Combine together the functions to be able to train data
-- Create sequential training data
+- How to create training data
+  - Simulation
+  - Hand-labeling
+  - Recursive
+- Recursive model training
+  - Bias
+  - Bootstrapping + class mislabels
+
+- Talk through training data approaches
+- Create our dataset cross-product file
+- Create our data to features mapping file
 
 The "blocking" problem
 
 - Blocking problem and nearest neighbor indices
 - Combine together to create a tool to classify the two datasets
 
-Homework:
-- Set up Performance Review
+Homework 6 due _this friday_, Feb 27:
+- Set up Performance Review. 
+- Create a new repository. You should come up with your own names for any files and copy in the entity resolution project as it exists right now. Add a README. This should be structured EXACTLY as laid out in the README, except with unique names. This is a repository to show off your coding skill.
+
+# Spring Break
 
 ## Week 7 - Mar 9
 
-- How has each person addressed the blocking problem?
-- How has each person created a training set?
-  - We need more data. Let's use a database
+- We need more data. Let's use a database
 
 - Why a database?
   - Keeps data in sync between people

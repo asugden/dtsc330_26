@@ -60,10 +60,13 @@ class Articles:
         # </PubDate>
         for el in article.iter():
             if el.tag in tags:
-                if el.tag.contains("Date"):
-                    for el2 in el.tag.iter():
+                if el.tag.find("Date") > -1:
+                    # Added after homework
+                    # ====================
+                    for el2 in el.iter():
                         if el2.tag in tags:
                             row[el2.tag] = el2.text
+                    # ====================
                 row[el.tag] = el.text
                 # <LastName>Bettcher</LastName>
                 # el.text pulls out what's INSIDE the pair of tags
@@ -83,14 +86,21 @@ class Articles:
             auth_row = {"PMID": row["PMID"]}
             for el in author.iter():
                 if el.tag in tags:
-                    auth_row[el.tag] = el.text
+                    auth_row[el.tag] = el.text.lower().strip()
             authors.append(auth_row)
 
         return row, authors
 
     def get_authors(self):
         """Get parsed grants"""
-        return self.author_df
+        return self.author_df.rename(
+            columns={
+                "LastName": "surname",
+                "ForeName": "forename",
+                "Initials": "initials",
+                "Affiliation": "affiliation",
+            }
+        )
 
     def get_entries(self):
         """Get parsed articles"""
