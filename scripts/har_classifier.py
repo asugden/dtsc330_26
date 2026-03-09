@@ -13,7 +13,7 @@ print("sys.path:", sys.path)
 import numpy as np
 import pandas as pd
 
-from dtsc330_26 import reusable_classifier
+from dtsc330_26.classifiers import reusable_classifier
 from dtsc330_26.readers import har
 
 data = har.HAR(
