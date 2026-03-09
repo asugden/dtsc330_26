@@ -18,6 +18,7 @@ spacy = "^3.8.11"
 gensim = "^4.4.0"
 jarowinkler = "^2.0.1"
 xgboost = "^3.2.0"
+sqlalchemy = "^2.0.48"
 
 
 [build-system]
