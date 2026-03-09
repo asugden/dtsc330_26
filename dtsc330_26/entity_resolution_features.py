@@ -1,6 +1,6 @@
 import fasttext
 import jarowinkler
-import np.linalg.norm
+import numpy as np
 import pandas as pd
 
 

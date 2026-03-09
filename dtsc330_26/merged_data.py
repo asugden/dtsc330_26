@@ -1,3 +1,5 @@
+from typing import Generator
+
 import fasttext
 import pandas as pd
 
@@ -18,7 +20,7 @@ class MergedData:
         grant = grants.Grants(grant_path)
         self.grant_df = grant.get_grantees().iloc[0:100]
 
-    def get_merged_data(self) -> pd.DataFrame:
+    def get_merged_data(self) -> Generator[pd.DataFrame]:
         # TEMPORARILY
         # Before we cluster possible matches together
         # I'm going to limit to only 100 entries from each dataframe
@@ -48,4 +50,6 @@ class MergedData:
 
 
 if __name__ == "__main__":
-    x = get_merged_data()
+    md = MergedData()
+    for df in md.get_merged_data():
+        print(df)
