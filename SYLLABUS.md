@@ -335,12 +335,15 @@ Homework 6 due _this friday_, Feb 27:
 
 ## Week 7 - Mar 9
 
+- Download Beekeeper Studio: https://www.beekeeperstudio.io/
+
 - We need more data. Let's use a database
 
 - Why a database?
   - Keeps data in sync between people
   - Designed for fast reading
   - Consistency
+- Map/reduce
 - Short database types overview
   - No SQL (e.g. MongoDB)
   - SQL
@@ -355,10 +358,11 @@ Homework 6 due _this friday_, Feb 27:
 - Bridge tables
   - Relationships between tables
 
-- Create database for our two datasets
+Homework 7:
+- Create a SQLite database for our datasets
+- Create tables for Articles and Grants
 - Create bridge table
-
-- Embed and Blocking
+- Add a function to insert data from Articles and Grants into the database via SQLAlchemy and Pandas
 
 ## Week 8 - Mar 16
 
