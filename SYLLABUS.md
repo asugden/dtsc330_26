@@ -343,13 +343,13 @@ Homework 6 due _this friday_, Feb 27:
   - Keeps data in sync between people
   - Designed for fast reading
   - Consistency
-- Map/reduce
 - Short database types overview
   - No SQL (e.g. MongoDB)
   - SQL
   - ETL (Extract, Transform, Load)
   - Spark
     - Databricks
+- Map/reduce
 - SQL introduction
   - SQLite v MySQL v Postgres
   - CREATE
@@ -379,29 +379,30 @@ Homework 7:
 
 ## Week 9 - Mar 23
 
-- You know that prep-before-the-midterm thing? That's this week. You've been working hard to get your code organized. We're going to start from scratch and reproduce everything, covering whatever questions you have. We will end with a working implementation of the entire pipeline based on everything we've learned, beginning with a brand-new repository. It is essential that you use this chance to ask all of those burning questions.
-
-## Week 10 - Mar 30
-
-- Finishing up the review from Week 9
 - Focus on creating a dataset and training the model
   - Reiterate using edge cases to improve model performance
   - Cover the "blocking" process again
     - Embedding + nearest neighbors
     - By last name
 
+## Week 10 - Mar 30
+
+- Autoencoder in tensorflow
+  - Train it on the wine quality dataset
+- Create our own neural network library
+
 ## Week 11 - Apr 13
 
-- Go through the final file-- pushed to week 13
-- Autoencoder in tensorflow
-- Create our own neural network library
+- Discuss the neural network library
+- Apply the NN library to the wine quality dataset
+- Consider Neural Network variants
+  - CNNs
+    - Resnet
+  - Transformers
 
 ## Week 12 - Apr 20
 
-- Finish the autoencoder in tensorflow, training it on the wine quality dataset
-- Finish the neural network library
-- Apply tensortango (the NN library) to the wine quality dataset
-- Consider how CNNs are a minor variant of what we've built
+- Coding with LLMs
 
 ## Week 13 - Apr 27
 

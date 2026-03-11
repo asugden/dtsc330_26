@@ -1,18 +1,22 @@
 # CamelCase
 # snake_case -- this is what python programmers use
 import pandas as pd
+import sqlalchemy
 
 
 class Grants:  # class names in python are camel case (e.g. GrantReader)
-    def __init__(self, path: str):
+    def __init__(self, path: str | None = None):
         """Create and parse a Grants file
 
         Args:
             path (str): the location of the file on the disk
+                If empty, it defaults to pulling from the database
         """
         # What is self?
         # "Self is the specific instance of the object" - Computer Scientist
         # Store shared variables in self
+        if path is None:
+            self.df, self.grantee_df = self._from_db()
         self.path = path
         self.df, self.grantee_df = self._parse(path)
 
@@ -75,6 +79,34 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
             grantees[["surname", "forename", "initials", "affiliation"]],
         )
 
+    def to_db(self, path: str = "data/article_grant_db.sqlite"):
+        """Send the read-in data to the database
+
+        Args:
+            path (str, optional): Location of sqlite file.
+                Defaults to 'data/article_grant_db.sqlite'.
+        """
+        # Define the connection
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+
+        # Always append. Deletion should be more thoughtful
+        # NEVER alter raw data.
+        # Pandas has its own index. That is different from the primary key.
+        # If you want, you can use the primary key as an index. I don't.
+        # It's complicated.
+
+        self.df[["application_id", "start_at", "grant_type", "total_cost"]].to_sql(
+            "grants", connection, if_exists="append", index=False
+        )
+
+    def _from_db(self):
+        """Load the data from the database"""
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+        df = pd.read_sql("SELECT * FROM grants", connection)
+        return df
+
     def get_grants(self):
         """Get parsed grants"""
         return self.df
@@ -96,3 +128,4 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
 if __name__ == "__main__":
     # This is for debugging
     grants = Grants("data/RePORTER_PRJ_C_FY2025.zip")
+    grants.to_db()
