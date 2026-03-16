@@ -366,16 +366,60 @@ Homework 7:
 
 ## Week 8 - Mar 16
 
-- Each person explains their current state
+- We will go through people's tables. You will be asked to come up and write the table creation statement on the board.
+
+- Graphs
+  - One to one
+  - One to many
+  - Many to many
 
 - Continue with SQL
-  - SELECT and INSERT
-  - DELETE FROM
-  - JOIN
-  - WHERE
+  - SELECT `SELECT col FROM table`
+  - * (stands for all columns, like Python)
+  - COUNT `COUNT * FROM table`
+  - DISTINCT `SELECT DISTINCT col FROM table`
+  - INSERT `INSERT INTO table VALUES (val1, val2, val3)`
+  - WHERE `WHERE col=val` (`=` is one comparitor. Others, such as `<`, `>`, `<>` exist)
+  - DELETE FROM `DELETE ROM table WHERE col=val` 
+  - UPDATE `UPDATE table SET col=val WHERE date < '2025'`
+  - JOIN `SELECT * FROM table1 JOIN table2 ON table1.col = table2.col`
+  - AS (aliasing)
+  - GROUP BY (`GROUP BY col` at the end, before ORDER BY)
+  - ORDER BY (`ORDER BY col` at the end, before LIMIT)
+  - LIMIT (`LIMIT 2` at the end)
+  - subqueries `SELECT col FROM table WHERE col2 IN (SELECT col3 FROM table2)` or `WITH temptab AS (SELECT * FROM table) SELECT * FROM temptab`
+  - HAVING - know that having exists, but it is much less widely used. The idea of having is to filter a groupby. `GROUP BY col HAVING count(*) > 1`
 
-- NetworkX and connected components
-- Store training data in database
+- Using NO LLMs, in class, solve the following problems:
+  1. Select 100 rows from a table, including all columns.
+  2. Select only the forenmae or title column from a table.
+  3. Return the unique set of last names from a table.
+  4. Find all columns in which the forename is 'John'.
+  5. List employees alphabetically by last name.
+  6. Insert a new person or article into a table.
+  7. Then, change that person's forename.
+  8. Finally, delete that person.
+  9. Join together tables on forename, surname or on organization.
+    - Only find identical matches
+    - Find all possible matches for a single surname
+    - If you don't have names in your db, you can either put them in or extract the first word of each title and treat it as a "name" `SELECT substr(sentence, 1, instr(sentence, ' ') - 1) AS first_word FROM your_table;`
+  10. How many unique surnames do you have? If not surnames, affiliations?
+  11. Find everyone who works at the same organization as a person named John (requires subqueries).
+  12. Find all people who work at an organization that appears more than once in the table (subqueries and cleverness)
+  13. If you complete this, what are the pandas equivalents for each?
+
+- Download https://mbta-massdot.opendata.arcgis.com/datasets/mbta-rapid-transit-stop-distances/explore
+- NetworkX, graphs, pagerank, and connected components
+
+Homework 8: NO LLMs ARE ACCEPTABLE. 
+- You may not ask any questions of an LLM. You may ask as many questions as you want from me. You may ask some questions of your peers, but if any of them are "what's the answer for..." that's not allowed.
+- This is another homework to build intuition. We have been talking about entity resolution. As of this week, we have covered everything that makes up an entity resolution pipeline.
+- What is entity resolution?
+- Relate every single week's work up to now to entity resolution. The first few weeks will be the hardest, because they are more abstractly related.
+- You should be able to relate the human activity recognition dataset to entity resolution. Not directly, but rather you should understand that we were learning a core conept about machine learning. What was it?
+- The output should be in the form of a markdown (.md) file. Graphics are optional.
+- The output should be either paragraphs or a bulleted list. 
+- If I believe that you've used an LLM to write this, 1. you are wasting an opportunity and 2. I will ask you to explain entity resolution directly to me in greater depth. If you cannot answer to my satisfaction, the homework will be marked uncompleted and will directly affect your grade.
 
 ## Week 9 - Mar 23
 
