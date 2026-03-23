@@ -423,11 +423,23 @@ Homework 8: NO LLMs ARE ACCEPTABLE.
 
 ## Week 9 - Mar 23
 
+- Use everything we learned to finish entity resolution
 - Focus on creating a dataset and training the model
   - Reiterate using edge cases to improve model performance
   - Cover the "blocking" process again
     - Embedding + nearest neighbors
     - By last name
+
+Homework 9:
+- Fix up your entity resolution repository
+  - If it is already perfect, great
+  - This repository CANNOT mention "homework", "class", or any similar wording
+  - The most recent commit of the repository also cannot mention these terms (really, no commit should but I don't want to make you redo it)
+  - The repository must have the complete pipeline that we have worked through
+  - Your description of entity resolution should live here. 
+  - REMEMBER: This is your opportunity to improve your chances of getting a job. Don't do this halfway
+- Create a neural network via https://teachablemachine.withgoogle.com/
+  - In your class repository, add one paragraph discussing the training data, the quality of the output, and why you think that a classifier like this can perform well with only a small number of training examples
 
 ## Week 10 - Mar 30
 
