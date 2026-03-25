@@ -5,17 +5,18 @@ import sqlalchemy
 
 
 class Grants:  # class names in python are camel case (e.g. GrantReader)
-    def __init__(self, path: str | None = None):
+    def __init__(self, path: str | None = None, load_db: bool = False):
         """Create and parse a Grants file
 
         Args:
             path (str): the location of the file on the disk
                 If empty, it defaults to pulling from the database
+            load_db (bool): if True, load the entire dataset from db
         """
         # What is self?
         # "Self is the specific instance of the object" - Computer Scientist
         # Store shared variables in self
-        if path is None:
+        if path is None and load_db:
             self.df, self.grantee_df = self._from_db()
         self.path = path
         self.df, self.grantee_df = self._parse(path)
@@ -70,13 +71,15 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
             names.apply(lambda x: x[1]).str.replace(".", "").str.strip()
         )
         grantees["initials"] = grantees["forename"].apply(
-            lambda x: [v[0] for v in x.split(" ") if len(v) > 0]
+            lambda x: "".join([v[0] for v in x.split(" ") if len(v) > 0])
         )
         # ====================
 
         return (
             df.drop(columns=["pi_names"]),
-            grantees[["surname", "forename", "initials", "affiliation"]],
+            grantees[
+                ["surname", "forename", "initials", "affiliation", "application_id"]
+            ],
         )
 
     def to_db(self, path: str = "data/article_grant_db.sqlite"):
@@ -99,13 +102,9 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
         self.df[["application_id", "start_at", "grant_type", "total_cost"]].to_sql(
             "grants", connection, if_exists="append", index=False
         )
-
-    def _from_db(self):
-        """Load the data from the database"""
-        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
-        connection = engine.connect()
-        df = pd.read_sql("SELECT * FROM grants", connection)
-        return df
+        self.get_grantees().to_sql(
+            "grantees", connection, if_exists="append", index=False
+        )
 
     def get_grants(self):
         """Get parsed grants"""
@@ -123,6 +122,22 @@ class Grants:  # class names in python are camel case (e.g. GrantReader)
                 "Affiliation": "affiliation",
             }
         )
+
+    def get_all_grantees_from_db(self):
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+        return pd.read_sql(
+            "SELECT id, forename, surname, initials, affiliation FROM grantees",
+            connection,
+        )
+
+    def _from_db(self):
+        """Load the data from the database"""
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+        df = pd.read_sql("SELECT * FROM grants", connection)
+        grantee_df = pd.read_sql("SELECT * FROM grantees")
+        return df, grantee_df
 
 
 if __name__ == "__main__":

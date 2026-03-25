@@ -709,6 +709,19 @@ docs = ["Sphinx", "furo"]
 test = ["objgraph", "psutil", "setuptools"]
 
 [[package]]
+name = "hnswlib"
+version = "0.8.0"
+description = "hnswlib"
+optional = false
+python-versions = "*"
+files = [
+    {file = "hnswlib-0.8.0.tar.gz", hash = "sha256:cb6d037eedebb34a7134e7dc78966441dfd04c9cf5ee93911be911ced951c44c"},
+]
+
+[package.dependencies]
+numpy = "*"
+
+[[package]]
 name = "idna"
 version = "3.11"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -3217,4 +3230,4 @@ scikit-learn = ["scikit-learn"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.14.1"
-content-hash = "748e8bf2238b2f8478ef6548f0f77b9a39d6293eeac75aae60a204bdc0ced41e"
+content-hash = "06da5281ab0bca3bd7ef24ac3fd65b4ecad5b6ff180c1e5f6ff5bc3dfe926fbf"

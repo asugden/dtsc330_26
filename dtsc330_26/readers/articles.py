@@ -2,6 +2,7 @@ import gzip
 import xml.etree.ElementTree as ET
 
 import pandas as pd
+import sqlalchemy
 
 
 class Articles:
@@ -99,6 +100,7 @@ class Articles:
                 "ForeName": "forename",
                 "Initials": "initials",
                 "Affiliation": "affiliation",
+                "PMID": "pmid",
             }
         )
 
@@ -106,6 +108,44 @@ class Articles:
         """Get parsed articles"""
         return self.article_df
 
+    # ---------------------
+    # ADDED AFTER HOMEWORK
+
+    def to_db(self, path: str = "data/article_grant_db.sqlite"):
+        """Send the read-in data to the database
+
+        Args:
+            path (str, optional): Location of sqlite file.
+                Defaults to 'data/article_grant_db.sqlite'.
+        """
+        # Define the connection
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+
+        # Always append. Deletion should be more thoughtful
+        # NEVER alter raw data.
+        # Pandas has its own index. That is different from the primary key.
+        # If you want, you can use the primary key as an index. I don't.
+        # It's complicated.
+
+        self.article_df[["PMID", "ArticleTitle"]].rename(
+            columns={"PMID": "pmid", "ArticleTitle": "title"}
+        ).dropna().to_sql("articles", connection, if_exists="append", index=False)
+        self.get_authors().dropna(subset=["pmid", "surname"]).to_sql(
+            "authors", connection, if_exists="append", index=False
+        )
+
+    def batch_from_db(self):
+        """Load the data from the database"""
+        engine = sqlalchemy.create_engine("sqlite:///data/article_grant_db.sqlite")
+        connection = engine.connect()
+        return pd.read_sql(
+            f"SELECT id, forename, surname, affiliation FROM authors",
+            connection,
+            chunksize=100,
+        )
+
 
 if __name__ == "__main__":
     articles = Articles("data/pubmed25n1275.xml.gz")
+    articles.to_db()

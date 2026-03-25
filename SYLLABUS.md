@@ -423,12 +423,17 @@ Homework 8: NO LLMs ARE ACCEPTABLE.
 
 ## Week 9 - Mar 23
 
+- Review Homework 8-- each person describes a week
 - Use everything we learned to finish entity resolution
-- Focus on creating a dataset and training the model
-  - Reiterate using edge cases to improve model performance
-  - Cover the "blocking" process again
-    - Embedding + nearest neighbors
-    - By last name
+  - Reminder of to_db
+  - Reminder of bridge tables
+  - Reminder of readers, reusable classifier
+  - Reminder of distance class
+  - Focus on creating a dataset and training the model
+    - Reiterate using edge cases to improve model performance
+    - Cover the "blocking" process again
+      - Embedding + nearest neighbors
+      - By last name
 
 Homework 9:
 - Fix up your entity resolution repository
