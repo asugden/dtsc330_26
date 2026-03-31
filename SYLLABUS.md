@@ -448,9 +448,26 @@ Homework 9:
 
 ## Week 10 - Mar 30
 
+- Introduction to neural networks
+  - What is their power?
+  - How are they trained?
+  - What are the types of neural networks?
 - Autoencoder in tensorflow
+  - What do we learn from dimensionality reduction
   - Train it on the wine quality dataset
-- Create our own neural network library
+- Formula one 2 vec as an example
+  https://www.f1-predictor.com/formula-one-2-vec/
+- Begin creating our neural network libraries
+  - Learn subclassing
+
+Homework 10:
+- Create your own competitor to tensorflow
+- Watch this movie by Joel Grus, the guy who literally wrote the book on Data Science: https://www.youtube.com/watch?v=o64FV-ez6Gw
+  - As you go, implement his library
+  - You MUST have docstrings
+  - This should be a new repository
+  - Your training/testing data must differ from his in at least one way
+
 
 ## Week 11 - Apr 13
 
