@@ -468,21 +468,110 @@ Homework 10:
   - This should be a new repository
   - Your training/testing data must differ from his in at least one way
 
+## Week 11 - Apr 7
 
-## Week 11 - Apr 13
+- Start with a problem. Given all of the data science tools we've had up to today, how do you solve this?
+- Here is a set of tunnels through which water can pass. Water can only move at the same level or from top to bottom. Water will pass along a ledge into all adjacent tunnel entrances.
 
+```
+Key:
+|~| water in
+(X) tunnel
+[=======] ledge
+~~~ X ~~~ reservoir
+
+---------------------------------------------------------
+|                                 |~|                   |
+|                                 |~|                   |
+|                                 |~|                   |
+|                                                       |
+|                           ( 1)       ( 2)             |
+|                           [=============]             |
+|                                                       |
+|      ( 3)  ( 4)  ( 5)           ( 6)  ( 7)  ( 8)      |
+|      [==============]           [==============]      |
+|                                                       |
+|                  ( 9)  (10)  (11)                     |
+|                  [==============]                     |
+|                                                       |
+|                        (15)                           |
+|                     ~~~~ O ~~~~                       |
+|                                                       |
+|      (12)  (13)  (14)           (16)        (17)      |
+|      [==============]           [==============]      |
+|                                                       |
+|                        (20)                           |
+|                     ~~~~ I ~~~~                       |
+|                                                       |
+|      (18)        (19)           (21)  (22)  (23)      |
+|      [==============]           [==============]      |
+|                                                       |
+|      (24)  (25)  (26)           (27)  (28)  (29)      |
+|      [==============]           [==============]      |
+|                                                       |
+|           (30)          (31)          (32)            |
+|        ~~~~ U ~~~~   ~~~~ A ~~~~   ~~~~ E ~~~~        |
+|                                                       |
+---------------------------------------------------------
+
+In addition to the rules for water flowing above, here are the remaining
+tunnel connections found by spelunkers:
+
+17-23
+14-27
+8-15
+21-26
+1-4
+24-29
+11-13
+6-10
+28-31
+22-20
+5-16
+9-30
+8-18
+12-19
+25-32
+2-7
+```
+
+- Problem 1: Reservoirs I and U are full, but a rain is coming. No water can go into I or U.
+  - You can only block two tunnels (numbers). The first blocker must be placed on tunnels 1, 2, or 3. The second blocker can only be placed on an odd-numbered tunnel.
+- Problem 2: A week later, reservoirs A and O have stayed full but I and U have finally drained. However, a hurricane is coming. 
+  - You now can block three tunnels, but each blocker can only be on an even-numbered tunnel that is not the number 28.
 - Discuss the neural network library
 - Apply the NN library to the wine quality dataset
+- Apply a convolution
 - Consider Neural Network variants
   - CNNs
+    - https://poloclub.github.io/cnn-explainer/
+    - https://brilliant.org/courses/intro-neural-networks/introduction-65/neural-nets-2/?from_llp=computer-science#page-42
     - Resnet
   - Transformers
 
-## Week 12 - Apr 20
+Homework: 
+- NOTE: Homemwork is NOT required for anyone who is a part of the RMU Hackathon! It is encouraged that you watch these videos when you get a chance, but you have more important things to do this week.
+- Watch the following video on transformers and take handwritten notes:
+  https://www.youtube.com/watch?v=wjZofJX0v4M
+- Snap a photo of your notes and send it to me via slack or email
+- Follow up with https://www.youtube.com/watch?v=eMlx5fFNoYc
+  - Why handwritten? Slower notetaking has been demonstrated to be more effective at forming memories.
+  - Why notes? It improves memory formation and allows me to see how well you understand the ideas.
+  - Why is watching a movie actually homework? We will cover this in class both before and after, but transformers are sufficiently complex that it is worth seeing them multiple times.
 
+## Week 12 - Apr 13
+
+- Understand a transformer block
+- Go back over LLM architecture
+- What are "agents"?
+- What is "RAG"?
 - Coding with LLMs
+- Open vs closed LLMs
+- Design our own dream LLM-based system
 
-## Week 13 - Apr 27
+## Week 13 - Apr 20
+
+## Week 14 - Apr 27
 
 This week is a grab-bag based on requests.
 
