@@ -546,11 +546,12 @@ tunnel connections found by spelunkers:
   - CNNs
     - https://poloclub.github.io/cnn-explainer/
     - https://brilliant.org/courses/intro-neural-networks/introduction-65/neural-nets-2/?from_llp=computer-science#page-42
+    - https://en.wikipedia.org/wiki/Sobel_operator
     - Resnet
   - Transformers
 
 Homework: 
-- NOTE: Homemwork is NOT required for anyone who is a part of the RMU Hackathon! It is encouraged that you watch these videos when you get a chance, but you have more important things to do this week.
+- NOTE: Homemwork is NOT required for anyone who is a part of the RMU Hackathon (so long as you go to the event on Sunday to present your work)! It is encouraged that you watch these videos when you get a chance, but you have more important things to do this week.
 - Watch the following video on transformers and take handwritten notes:
   https://www.youtube.com/watch?v=wjZofJX0v4M
 - Snap a photo of your notes and send it to me via slack or email
@@ -571,24 +572,23 @@ Homework:
 
 ## Week 13 - Apr 20
 
+- Simulational data science
+- Take SPOT survey
+
 ## Week 14 - Apr 27
 
-This week is a grab-bag based on requests.
-
-- Flask
+- Review the entire semester
 - AWS
   - EC2
   - RDS
 - Google cloud
   - Firebase
-- Feature engineering
 - TF-IDF
-- Tokenization
-- Image augmentation
-- Standardizing pixels
 
 ## Final Exam
 
 Schedule the Final 1:1 over Zoom.
 
 A job interview in which we evaluate your entire Github, as well as ask questions on topics covered throughout the course
+
+The first question will always be: "who are you?" Expect questions that cover the material from class. You will be given an example problem and asked to solve it in theory. You may also be given a simple coding problem.
