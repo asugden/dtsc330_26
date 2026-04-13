@@ -550,7 +550,7 @@ tunnel connections found by spelunkers:
     - Resnet
   - Transformers
 
-Homework: 
+Homework 11: 
 - NOTE: Homemwork is NOT required for anyone who is a part of the RMU Hackathon (so long as you go to the event on Sunday to present your work)! It is encouraged that you watch these videos when you get a chance, but you have more important things to do this week.
 - Watch the following video on transformers and take handwritten notes:
   https://www.youtube.com/watch?v=wjZofJX0v4M
@@ -562,6 +562,9 @@ Homework:
 
 ## Week 12 - Apr 13
 
+Problem (45 mins):
+- Using any tool(s) you've seen in this class, create a study guide from this document, SYLLABUS.md.
+
 - Understand a transformer block
 - Go back over LLM architecture
 - What are "agents"?
@@ -569,6 +572,16 @@ Homework:
 - Coding with LLMs
 - Open vs closed LLMs
 - Design our own dream LLM-based system
+
+Homework 12: Stop Spam
+Using this dataset:
+https://www.kaggle.com/datasets/ssssws/spam-email-detection-dataset-clean-and-ml-ready
+
+Create a classifier to predict spam.
+- DO NOT LOOK at any publicly hosted solutions.
+- You may not use AI to create a reusable classifier or to use any existing features.
+- You are welcome to use Generative AI to create any new features.
+
 
 ## Week 13 - Apr 20
 

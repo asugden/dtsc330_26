@@ -35,34 +35,32 @@ class EntityResolutionFeatures:
             ),
             axis=1,
         )
-        comb_df["jw_sn_dist"] = comb_df.apply(
-            lambda row: jarowinkler.jaro_similarity(row["surname_x"], row["surname_y"]),
-            axis=1,
-        )
+        # comb_df["jw_sn_dist"] = comb_df.apply(
+        #     lambda row: jarowinkler.jaro_similarity(row["surname_x"], row["surname_y"]),
+        #     axis=1,
+        # )
 
         comb_df["set_aff_dist"] = comb_df.apply(
             lambda row: set_dist(row["affiliation_x"], row["affiliation_y"]), axis=1
         )
 
-        comb_df["ft_fn_dist"] = comb_df.apply(
-            lambda row: np.linalg.norm(
-                row["ft_forename_vec_x"] - row["ft_forename_vec_y"]
-            ),
-            axis=1,
-        )
-        comb_df["ft_sn_dist"] = comb_df.apply(
-            lambda row: np.linalg.norm(
-                row["ft_surname_vec_x"] - row["ft_surname_vec_y"]
-            ),
-            axis=1,
-        )
+        # comb_df["ft_fn_dist"] = comb_df.apply(
+        #     lambda row: np.linalg.norm(
+        #         row["ft_forename_vec_x"] - row["ft_forename_vec_y"]
+        #     ),
+        #     axis=1,
+        # )
+        # comb_df["ft_sn_dist"] = comb_df.apply(
+        #     lambda row: np.linalg.norm(
+        #         row["ft_surname_vec_x"] - row["ft_surname_vec_y"]
+        #     ),
+        #     axis=1,
+        # )
 
         return comb_df[
             [
                 "jw_fn_dist",
-                "jw_sn_dist",
                 "set_aff_dist",
-                "ft_fn_dist",
-                "ft_surname_dist",
+                # "ft_fn_dist",
             ]
         ]
