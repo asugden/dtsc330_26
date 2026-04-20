@@ -585,8 +585,25 @@ Create a classifier to predict spam.
 
 ## Week 13 - Apr 20
 
+Problem (20 mins):
+- Using ONLY the search engine duckduckgo.com, NO Gen AI suggestions, and Colab, identify the contents of the mystery image (analyze/mystering-image.jpg) using YOLO. YOLO is the top-of-the-line object detection framework.
+  - Display the results of the object detection of the mystery image.
+  - What kind of tool is YOLO?
+
 - Simulational data science
+  - This is one of the most interesting and open-ended examples of data science. You often can be thrown a new problem that no one has seen before.
+  - Consider an epidemic. You have some initial data on numbers of infected individuals.
+  - How can you model what will happen with the disease?
+  - https://people.wku.edu/lily.popova.zhuhadar/
+
 - Take SPOT survey
+
+Homework 13: Solve Search
+- You have experience in simulating data.
+- USE AI IF YOU'D LIKE: Can you use Tensorflow to create a neural network that fixes spelling? Hint: I may ask you how this works during the final. If you use AI, you have to go back and understand.
+  - This is a classic example of a seq2seq model. Originally, seq2seq used recurrent neural networks (RNNs), but has been updated to use transformers.
+  - We're going to have to push the bounds of our knowledge of transformers. In this case, we will need to use cross attention as well as self attention. Remember, self attention allows us to learn connections within a sentence, paragraph, or document. Cross-attention allows us to learn the connections between two sequences, often times between two languages (or misspelled text and its associated corrected text).
+  - https://jalammar.github.io/illustrated-transformer/
 
 ## Week 14 - Apr 27
 
