@@ -604,6 +604,7 @@ Homework 13: Solve Search
   - This is a classic example of a seq2seq model. Originally, seq2seq used recurrent neural networks (RNNs), but has been updated to use transformers.
   - We're going to have to push the bounds of our knowledge of transformers. In this case, we will need to use cross attention as well as self attention. Remember, self attention allows us to learn connections within a sentence, paragraph, or document. Cross-attention allows us to learn the connections between two sequences, often times between two languages (or misspelled text and its associated corrected text).
   - https://jalammar.github.io/illustrated-transformer/
+  - Check out the example code in this repository in tf_layers.
 
 ## Week 14 - Apr 27
 
