@@ -16,7 +16,7 @@ class TokenAndPositionEmbedding(keras.layers.Layer):
             embed_dim (int): the embedding dimensions
         """
         super().__init__()
-        self.token_emb = keras.layers.Embedding(vocab_size, embed_dim)
+        self.token_emb = keras.layers.Embedding(vocab_size, embed_dim, mask_zero=True)
 
         # Position embedding can be done more thoughtfully, but here it
         # is done by learning an arbitrary vector

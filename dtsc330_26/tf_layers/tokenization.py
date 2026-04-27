@@ -13,7 +13,7 @@ def vocab():
 
 
 class Tokenization:
-    def __init__(self, max_len: int = 20):
+    def __init__(self, max_len):
         """Tokenize input strings into individual characters. Tokenization
         turns the strings into a list of integers.
 

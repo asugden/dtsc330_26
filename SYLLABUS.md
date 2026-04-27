@@ -614,7 +614,9 @@ Homework 13: Solve Search
   - RDS
 - Google cloud
   - Firebase
-- TF-IDF
+- Supabase
+- Spot surveys
+- Schedule the final exam
 
 ## Final Exam
 
